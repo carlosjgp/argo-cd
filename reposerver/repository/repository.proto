@@ -59,6 +59,7 @@ message RepoAppDetailsResponse {
 	HelmAppSpec helm = 3;
 	KustomizeAppSpec kustomize = 4;
 	DirectoryAppSpec directory = 5;
+    string icon = 6;
 }
 
 message RepoServerRevisionMetadataRequest {

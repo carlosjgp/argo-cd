@@ -521,6 +521,39 @@ func TestGetAppDetailsHelm(t *testing.T) {
 	assert.EqualValues(t, []string{"values-production.yaml", "values.yaml"}, res.Helm.ValueFiles)
 }
 
+func TestGetAppDetailsHelm_NoIconFound(t *testing.T) {
+	service := newService("../..")
+
+	res, err := service.GetAppDetails(context.Background(), &apiclient.RepoServerAppDetailsQuery{
+		Repo: &argoappv1.Repository{},
+		Source: &argoappv1.ApplicationSource{
+			Path: "./util/helm/testdata/test-chart",
+		},
+	})
+
+	assert.NoError(t, err)
+	assert.NotNil(t, res.Helm)
+
+	assert.Equal(t, "", res.Icon)
+}
+
+func TestGetAppDetailsHelm_IconFromChart(t *testing.T) {
+	service := newService("../..")
+
+	res, err := service.GetAppDetails(context.Background(), &apiclient.RepoServerAppDetailsQuery{
+		Repo: &argoappv1.Repository{},
+		Source: &argoappv1.ApplicationSource{
+			Path: "./util/helm/testdata/wordpress",
+		},
+	})
+
+	assert.NoError(t, err)
+	assert.NotNil(t, res.Helm)
+
+	assert.Equal(t, "Helm", res.Type)
+	assert.EqualValues(t, "https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png", res.Icon)
+}
+
 func TestGetAppDetailsKustomize(t *testing.T) {
 	service := newService("../..")
 

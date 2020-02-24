@@ -66,6 +66,9 @@ type ApplicationSpec struct {
 	// Increasing will increase the space used to store the history, so we do not recommend increasing it.
 	// Default is 10.
 	RevisionHistoryLimit *int64 `json:"revisionHistoryLimit,omitempty" protobuf:"bytes,7,name=revisionHistoryLimit"`
+	// Icon is the URL to the icon to be render on the ArgoCD UI and it will override the Helm chart icon
+	// when specify
+	Icon string `json:"icon" protobuf:"bytes,8,name=icon"`
 }
 
 // ResourceIgnoreDifferences contains resource filter and list of json paths which should be ignored during comparison with live state.

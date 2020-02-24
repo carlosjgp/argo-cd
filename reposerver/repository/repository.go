@@ -709,6 +709,23 @@ func (s *Service) GetAppDetails(ctx context.Context, q *apiclient.RepoServerAppD
 				if strings.Contains(fName, "values") && (filepath.Ext(fName) == ".yaml" || filepath.Ext(fName) == ".yml") {
 					res.Helm.ValueFiles = append(res.Helm.ValueFiles, fName)
 				}
+				if fName == "Chart.yaml" && len(res.Icon) == 0 {
+					out, err := utfutil.ReadFile(filepath.Join(appPath, "Chart.yaml"), utfutil.UTF8)
+					if err != nil {
+						// This is not a critical operation... let's just log a "warning"
+						log.Warnf("Failed to read file: %s", fName)
+					}
+					var objMap map[string]interface{}
+					err = yaml.Unmarshal(out, &objMap)
+					if err != nil {
+						// This is not a critical operation... let's just log a "warning"
+						log.Warnf("Failed unmarshall YAML: %s", fName)
+					} else {
+						if value, ok := objMap["icon"]; ok {
+							res.Icon = value.(string)
+						}
+					}
+				}
 			}
 			h, err := helm.NewHelmApp(appPath, getHelmRepos(q.Repos))
 			if err != nil {

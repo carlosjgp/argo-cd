@@ -10,3 +10,5 @@ cmd/**/debug
 debug.test
 coverage.out
 test-results
+**/node_modules
+**/package-lock.json

@@ -308,6 +308,10 @@ spec:
                     ksonnet app.yaml
                   type: string
               type: object
+            icon:
+              description: Icon is the URL to the icon to be render on the ArgoCD
+                UI and it will override the Helm chart icon when specify
+              type: string
             ignoreDifferences:
               description: IgnoreDifferences controls resources fields which should
                 be ignored during comparison
@@ -562,6 +566,7 @@ spec:
               type: object
           required:
           - destination
+          - icon
           - project
           - source
           type: object

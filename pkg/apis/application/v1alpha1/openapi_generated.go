@@ -869,8 +869,15 @@ func schema_pkg_apis_application_v1alpha1_ApplicationSpec(ref common.ReferenceCa
 							Format:      "int64",
 						},
 					},
+					"icon": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Icon is the URL to the icon to be render on the ArgoCD UI and it will override the Helm chart icon when specify",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
-				Required: []string{"source", "destination", "project"},
+				Required: []string{"source", "destination", "project", "icon"},
 			},
 		},
 		Dependencies: []string{
