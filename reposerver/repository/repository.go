@@ -620,7 +620,7 @@ func findPlugin(plugins []*v1alpha1.ConfigManagementPlugin, name string) *v1alph
 func runConfigManagementPlugin(appPath string, envVars *v1alpha1.Env, q *apiclient.ManifestRequest, creds git.Creds) ([]*unstructured.Unstructured, error) {
 	plugin := findPlugin(q.Plugins, q.ApplicationSource.Plugin.Name)
 	if plugin == nil {
-		return nil, fmt.Errorf("Config management plugin with name '%s' is not supported.", q.ApplicationSource.Plugin.Name)
+		return nil, fmt.Errorf("Config management plugin with name '%s' is not supported", q.ApplicationSource.Plugin.Name)
 	}
 	env := append(os.Environ(), envVars.Environ()...)
 	if creds != nil {
@@ -709,7 +709,7 @@ func (s *Service) GetAppDetails(ctx context.Context, q *apiclient.RepoServerAppD
 				if strings.Contains(fName, "values") && (filepath.Ext(fName) == ".yaml" || filepath.Ext(fName) == ".yml") {
 					res.Helm.ValueFiles = append(res.Helm.ValueFiles, fName)
 				}
-				if fName == "Chart.yaml" && len(res.Icon) == 0 {
+				if fName == "Chart.yaml" {
 					out, err := utfutil.ReadFile(filepath.Join(appPath, "Chart.yaml"), utfutil.UTF8)
 					if err != nil {
 						// This is not a critical operation... let's just log a "warning"

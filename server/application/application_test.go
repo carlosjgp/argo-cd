@@ -172,6 +172,7 @@ metadata:
   name: test-app
   namespace: default
 spec:
+  icon: https://domain.io/icon.png
   source:
     path: some/path
     repoURL: https://github.com/argoproj/argocd-example-apps.git
@@ -230,6 +231,15 @@ func TestUpdateAppSpec(t *testing.T) {
 	app, err := appServer.Get(context.Background(), &application.ApplicationQuery{Name: &testApp.Name})
 	assert.NoError(t, err)
 	assert.Equal(t, "default", app.Spec.Project)
+}
+
+func TestAppSpecIcon(t *testing.T) {
+	testApp := newTestApp()
+	appServer := newTestAppServer(testApp)
+	testApp.Spec.Project = ""
+	app, err := appServer.Get(context.Background(), &application.ApplicationQuery{Name: &testApp.Name})
+	assert.NoError(t, err)
+	assert.Equal(t, "https://domain.io/icon.png", app.Spec.Icon)
 }
 
 func TestDeleteApp(t *testing.T) {
