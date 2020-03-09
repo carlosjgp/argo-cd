@@ -168,6 +168,7 @@ export interface ApplicationSourceHelm {
     values?: string;
     parameters: HelmParameter[];
     fileParameters: HelmFileParameter[];
+    icon?: string;
 }
 
 export interface ApplicationSourceKustomize {
@@ -505,6 +506,7 @@ export interface HelmAppSpec {
     values?: string;
     parameters: HelmParameter[];
     fileParameters: HelmFileParameter[];
+    icon?: string;
 }
 
 export interface KustomizeAppSpec {

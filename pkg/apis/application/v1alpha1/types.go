@@ -186,6 +186,8 @@ type ApplicationSourceHelm struct {
 	Values string `json:"values,omitempty" protobuf:"bytes,4,opt,name=values"`
 	// FileParameters are file parameters to the helm template
 	FileParameters []HelmFileParameter `json:"fileParameters,omitempty" protobuf:"bytes,5,opt,name=fileParameters"`
+	// Helm chart icon specified on the Chart.yaml of the chart
+	Icon string `json:"icon" protobuf:"bytes,6,name=icon"`
 }
 
 // HelmParameter is a parameter to a helm template

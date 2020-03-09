@@ -631,7 +631,15 @@ func schema_pkg_apis_application_v1alpha1_ApplicationSourceHelm(ref common.Refer
 							},
 						},
 					},
+					"icon": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Helm chart icon specified on the Chart.yaml of the chart",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
+				Required: []string{"icon"},
 			},
 		},
 		Dependencies: []string{

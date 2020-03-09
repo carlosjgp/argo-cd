@@ -3135,6 +3135,10 @@
             "$ref": "#/definitions/v1alpha1HelmFileParameter"
           }
         },
+        "icon": {
+          "type": "string",
+          "title": "Helm chart icon specified on the Chart.yaml of the chart"
+        },
         "parameters": {
           "type": "array",
           "title": "Parameters are parameters to the helm template",

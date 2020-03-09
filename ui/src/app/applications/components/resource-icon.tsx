@@ -7,8 +7,17 @@ export const ResourceIcon = ({kind, icon}: {kind: string; icon?: string}) => {
         return <img src={'assets/images/resources/' + i + '.svg'} alt={kind} style={{padding: '2px', width: '40px', height: '32px'}} />;
     }
     if (kind === 'Application') {
-        if (icon !== undefined) {
-            return <img src={icon} alt={kind} style={{padding: '2px', width: '40px', height: '32px'}} />;
+        if (icon !== undefined && icon !=="") {
+            const style: React.CSSProperties = {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '40px',
+                height: '40px',
+                marginTop: '-20px',
+                marginLeft: '-20px'
+            };
+            return <img src={icon} alt={kind} style={style} />;
         } else {
             return <i title={kind} className={`icon argo-icon-application`} />;
         }

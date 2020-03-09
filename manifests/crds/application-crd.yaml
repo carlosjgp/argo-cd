@@ -141,6 +141,10 @@ spec:
                                 type: string
                             type: object
                           type: array
+                        icon:
+                          description: Helm chart icon specified on the Chart.yaml
+                            of the chart
+                          type: string
                         parameters:
                           description: Parameters are parameters to the helm template
                           items:
@@ -172,6 +176,8 @@ spec:
                           description: Values is Helm values, typically defined as
                             a block
                           type: string
+                      required:
+                      - icon
                       type: object
                     ksonnet:
                       description: Ksonnet holds ksonnet specific options
@@ -430,6 +436,10 @@ spec:
                             type: string
                         type: object
                       type: array
+                    icon:
+                      description: Helm chart icon specified on the Chart.yaml of
+                        the chart
+                      type: string
                     parameters:
                       description: Parameters are parameters to the helm template
                       items:
@@ -460,6 +470,8 @@ spec:
                     values:
                       description: Values is Helm values, typically defined as a block
                       type: string
+                  required:
+                  - icon
                   type: object
                 ksonnet:
                   description: Ksonnet holds ksonnet specific options
@@ -687,6 +699,10 @@ spec:
                                   type: string
                               type: object
                             type: array
+                          icon:
+                            description: Helm chart icon specified on the Chart.yaml
+                              of the chart
+                            type: string
                           parameters:
                             description: Parameters are parameters to the helm template
                             items:
@@ -719,6 +735,8 @@ spec:
                             description: Values is Helm values, typically defined
                               as a block
                             type: string
+                        required:
+                        - icon
                         type: object
                       ksonnet:
                         description: Ksonnet holds ksonnet specific options
@@ -943,6 +961,10 @@ spec:
                                         type: string
                                     type: object
                                   type: array
+                                icon:
+                                  description: Helm chart icon specified on the Chart.yaml
+                                    of the chart
+                                  type: string
                                 parameters:
                                   description: Parameters are parameters to the helm
                                     template
@@ -979,6 +1001,8 @@ spec:
                                   description: Values is Helm values, typically defined
                                     as a block
                                   type: string
+                              required:
+                              - icon
                               type: object
                             ksonnet:
                               description: Ksonnet holds ksonnet specific options
@@ -1232,6 +1256,10 @@ spec:
                                     type: string
                                 type: object
                               type: array
+                            icon:
+                              description: Helm chart icon specified on the Chart.yaml
+                                of the chart
+                              type: string
                             parameters:
                               description: Parameters are parameters to the helm template
                               items:
@@ -1265,6 +1293,8 @@ spec:
                               description: Values is Helm values, typically defined
                                 as a block
                               type: string
+                          required:
+                          - icon
                           type: object
                         ksonnet:
                           description: Ksonnet holds ksonnet specific options
@@ -1505,6 +1535,10 @@ spec:
                                     type: string
                                 type: object
                               type: array
+                            icon:
+                              description: Helm chart icon specified on the Chart.yaml
+                                of the chart
+                              type: string
                             parameters:
                               description: Parameters are parameters to the helm template
                               items:
@@ -1538,6 +1572,8 @@ spec:
                               description: Values is Helm values, typically defined
                                 as a block
                               type: string
+                          required:
+                          - icon
                           type: object
                         ksonnet:
                           description: Ksonnet holds ksonnet specific options

@@ -170,6 +170,9 @@ message ApplicationSourceHelm {
 
   // FileParameters are file parameters to the helm template
   repeated HelmFileParameter fileParameters = 5;
+
+  // Helm chart icon specified on the Chart.yaml of the chart
+  optional string icon = 6;
 }
 
 // ApplicationSourceJsonnet holds jsonnet specific options

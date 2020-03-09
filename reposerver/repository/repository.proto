@@ -54,11 +54,11 @@ message RepoServerAppDetailsQuery {
 
 // RepoAppDetailsResponse application details
 message RepoAppDetailsResponse {
-	string type = 1;
-	KsonnetAppSpec ksonnet = 2;
-	HelmAppSpec helm = 3;
-	KustomizeAppSpec kustomize = 4;
-	DirectoryAppSpec directory = 5;
+    string type = 1;
+    KsonnetAppSpec ksonnet = 2;
+    HelmAppSpec helm = 3;
+    KustomizeAppSpec kustomize = 4;
+    DirectoryAppSpec directory = 5;
     string icon = 6;
 }
 
@@ -79,12 +79,12 @@ message KsonnetAppSpec {
 
 // HelmAppSpec contains helm app name  in source repo
 message HelmAppSpec {
-	string name = 1;
-	repeated string valueFiles = 3;
-	// the output of `helm inspect values`
-	repeated github.com.argoproj.argo_cd.pkg.apis.application.v1alpha1.HelmParameter parameters = 4;
-	// the contents of values.yaml
-	string values = 5;
+    string name = 1;
+    repeated string valueFiles = 3;
+    // the output of `helm inspect values`
+    repeated github.com.argoproj.argo_cd.pkg.apis.application.v1alpha1.HelmParameter parameters = 4;
+    // the contents of values.yaml
+    string values = 5;
     // helm file parameters
     repeated github.com.argoproj.argo_cd.pkg.apis.application.v1alpha1.HelmFileParameter fileParameters = 6;
 }

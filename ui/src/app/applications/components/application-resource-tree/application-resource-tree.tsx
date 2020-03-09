@@ -200,6 +200,7 @@ function renderResourceNode(props: ApplicationResourceTreeProps, id: string, nod
     }
     const appNode = isAppNode(node);
     const rootNode = !node.root;
+    const icon = props.app.spec.icon || props.app.spec.source.helm.icon
     return (
         <div
             onClick={() => props.onNodeClick && props.onNodeClick(fullName)}
@@ -214,7 +215,7 @@ function renderResourceNode(props: ApplicationResourceTreeProps, id: string, nod
                 className={classNames('application-resource-tree__node-kind-icon', {
                     'application-resource-tree__node-kind-icon--big': rootNode
                 })}>
-                <ResourceIcon kind={node.kind} icon={props.app.spec.icon} />
+                <ResourceIcon kind={node.kind} icon={icon} />
                 <br />
                 {!rootNode && <div className='application-resource-tree__node-kind'>{ResourceLabel({kind: node.kind})}</div>}
             </div>

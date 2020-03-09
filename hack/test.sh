@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eux -o pipefail
 
+# Make sure we are running Helm 2 before running the tests
+helm version --client | grep "v2."
+
 # make sure apiclient does not depend on packr
 which godepgraph || go get github.com/kisielk/godepgraph
 if godepgraph -s github.com/argoproj/argo-cd/pkg/apiclient | grep packr; then
